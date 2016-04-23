@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "proposals#index"
 
+
+  root  'static_pages#home'
   resources :proposals
 end

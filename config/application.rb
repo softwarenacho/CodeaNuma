@@ -10,6 +10,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require "pp"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -32,4 +33,14 @@ module CodeaTAG
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
+end
+
+
+# Aquí es donde vamos a pegar el TwitterClient 
+
+CLIENT = Twitter::REST::Client.new do |config|
+  config.consumer_key        = Rails.application.secrets.consumer_key
+  config.consumer_secret     = Rails.application.secrets.consumer_secret
+  config.access_token        = Rails.application.secrets.access_token
+  config.access_token_secret = Rails.application.secrets.access_token_secret
 end
