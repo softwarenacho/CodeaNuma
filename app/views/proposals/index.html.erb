@@ -1,25 +1,66 @@
-<h1>Bienvenido a la aplicación</h1>
+<div id="first_section">
+  <div class="container">
+    <h1 class="text-center">Bienvenido a la aplicación : Agrega tu propuesta</h1>
+    <div class="row">            
+      <%= form_for @proposal do |f| %>
 
-<h1>Agrega tu propuesta</h1>
+      <div class="proposal-input col-md-offset-3 col-md-6 ">         
+        <%= f.text_field :name,   placeholder: "Nombre", class: "form-control" %>
+      </div>
+      <div class="proposal-input col-md-offset-3 col-md-6 ">         
+        <%= f.text_field :avatar, placeholder: "Avatar", class: "form-control" %>
+      </div>    
+      <div class="proposal-input col-md-offset-3 col-md-6">
+        <%= f.submit "Enviar", class: "btn btn-md btn-primary btn-block" %>
+      </div>      
+      <% end %>
+    </div><!-- first_section -->
+  </div><!-- container -->
+</div>
+<div  class="row col-md-10 col-md-offset-1">
+  <div id="search_results" class="row">
+    <% if @proposals.any? %>
+      <% @proposals.each do |proposal| %>
+        <div class="search_thumbnails col-sm-6 col-md-3">
+          <div class="search_img">
+            <%= image_tag("#{proposal.avatar}") %>
+          </div>
+          <div class="search_caption">
+            <h5><%= proposal.name %></h5>
+          </div>
+          <div class="search_btn">
+            <%= link_to "Editar", edit_proposal_path(proposal) %>
+            <%= link_to "Borrar", proposal_path(proposal),
+            method: :delete,
+            data: { confirm: "¿Seguro que quieres eliminar la propuesta?" } %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No has agregado propuestas aún</p>
+    <% end  %>
+</div>
 
-<%= form_for @proposal do |f| %>
-  <%= f.text_field :name,   placeholder: "Nombre" %>
-  <%= f.text_field :avatar, placeholder: "Avatar" %>
-  <%= f.submit "Enviar" %>
 
-<% end %>
 
-<% if @proposals.any? %>
-  <% @proposals.each do |proposal| %>
-    <%= image_tag("#{proposal.avatar}", width: "150px") %>
-    <span><%= proposal.name %></span>
-    <span><%= link_to "Editar", edit_proposal_path(proposal) %>
-    </span>
-    <span><%= link_to "Borrar", proposal_path(proposal),
-                      method: :delete,
-                      data: { confirm: "¿Seguro que quieres eliminar la propuesta?" } %>
-    </span>
-  <% end %>
-<% else %>
-    <p>No has agregado propuestas aún</p>
-<% end  %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

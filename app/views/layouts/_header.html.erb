@@ -1,5 +1,9 @@
-<div class="text-center">
-  <a href="http://tagfestival.com/" target="_blank"><%= image_tag("http://rko.fm/wp/wp-content/uploads/2014/10/Logo-blanco.png", height: "100px") %></a>
-  <h1>Tag Wall</h1>
-  <a href="http://www.codea.mx/" target="_blank"><%= image_tag("http://photos1.meetupstatic.com/photos/event/1/5/1/2/global_441125394.jpeg", height: "100px") %></a>
-</div>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to image_tag("tag_logo.png", alt: "tag", :height => 40) , root_path, class: "logo", id: "logo_tag" %>
+    <%= link_to image_tag("codeacamp_logo.png", alt: "Codea", :height => 40) , root_path, class: "logo", id: "logo_codea" %>
+    <nav>
+      
+    </nav>
+  </div>
+</header>

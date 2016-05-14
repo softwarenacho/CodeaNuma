@@ -41,9 +41,38 @@ class ProposalsController < ApplicationController
     redirect_to root_url
   end
 
+  def add_proposal
+    p "Entre a add proposal"
+    p params
+
+    @proposal = Proposal.new(proposal_params)
+    if @proposal.save
+      flash[:success] = "Propuesta Agregada"
+      redirect_to root_path
+    else
+      render 'new'
+    end
+
+
+  end
+
   private
 
     def proposal_params
-      params.require(:proposal).permit(:name, :avatar)
+      params.require(:proposal).permit(:name, :avatar, :twitter_handle)
     end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
