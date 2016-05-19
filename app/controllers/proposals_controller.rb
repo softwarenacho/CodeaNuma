@@ -9,8 +9,7 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    
-    @proposal = Proposal.find_or_create_by_name(proposal_params[:name])
+    @proposal = Proposal.new(proposal_params)
     if @proposal.save
       redirect_to proposals_path
     else
@@ -42,15 +41,18 @@ class ProposalsController < ApplicationController
     redirect_to proposals_path
   end
 
-  def add_proposal    
-    if @proposal = Proposal.create_with(proposal_params).find_or_create_by(twitter_handle: proposal_params[:twitter_handle])
+  def add_proposal 
+    @proposal = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle])
+    if @proposal
+      @proposal.increment(:counter).save
       flash[:success] = "Propuesta Agregada"
       redirect_to proposals_path
+    elsif Proposal.new(proposal_params).save
+       flash[:success] = "Propuesta Agregada"
+       redirect_to proposals_path
     else
       render 'new'
     end
-
-
   end
 
   private

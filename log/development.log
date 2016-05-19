@@ -32541,3 +32541,1798 @@ Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb07
 
 
 Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:15:24 -0500
+  [1m[36m (34.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (13.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProposals (20160422215808)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (27.7ms)[0m  [1mCREATE TABLE "proposals" ("id" serial primary key, "name" character varying, "avatar" character varying, "twitter_handle" character varying, "counter" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422215808"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'proposals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2016-05-18 21:27:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 603ms (Views: 592.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-362ec0d2b11cc6bb37966793cdd18651b796d6f773a1978a84ce0ad520f6b003.css?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:27:53 -0500
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:31:18 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (27.3ms)
+  Rendered twitter_users/search_users.js.erb (42.0ms)
+Completed 200 OK in 1877ms (Views: 59.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:31:21 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iwf8O6UMjwCOSqA2FVhUMzcWU8OIe+mx3Zlv7tG7zlltXp4ZNLVePtMAfdQCV4xi5STa3Juk2yO5wYgtmjrmjw==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.4ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mProposal Exists (0.5ms)[0m  SELECT  1 AS one FROM "proposals" WHERE "proposals"."twitter_handle" = 'ibarroladt' LIMIT 1
+  [1m[36mSQL (9.5ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Javier Ibarrola"], ["avatar", "http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg"], ["twitter_handle", "ibarroladt"], ["created_at", "2016-05-19 02:31:21.827762"], ["updated_at", "2016-05-19 02:31:21.827762"]]
+  [1m[35m (5.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 56ms (ActiveRecord: 16.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:31:21 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+Completed 200 OK in 87ms (Views: 85.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:35:55 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 200 OK in 2198ms (Views: 2196.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-8e456f5711aa650b7ce178a150b7ebd7fa6768b5e961b9074b7bf8088bdd5afe.css?body=1" for ::1 at 2016-05-18 21:35:57 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:35:58 -0500
+
+
+Started GET "/" for ::1 at 2016-05-18 21:36:44 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 200 OK in 2516ms (Views: 2514.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 21:36:46 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+Completed 200 OK in 110ms (Views: 109.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-cf35cd8b6c2112efcc62f85e4dc64b691527deaf07cbd15a6178e98fc98ea33a.css?body=1" for ::1 at 2016-05-18 21:36:47 -0500
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:36:50 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (15.3ms)
+  Rendered twitter_users/search_users.js.erb (31.3ms)
+Completed 200 OK in 1457ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:36:54 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nd+fDlPoOksxdm5xNTDDZmtFwWXgpt92CE85/fwxHVR7hv0swlHrdWw8s5MiPxs3uXdIevN57eRsF94+t7A1gg==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.5ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:36:54 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 80ms (Views: 78.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 21:37:03 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 2276ms (Views: 2275.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 21:37:06 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 109ms (Views: 108.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-5d656083561269238e2c38baff788fbebc3ec7a7d460bf63f439c7aa98c0cc2a.css?body=1" for ::1 at 2016-05-18 21:37:06 -0500
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:37:08 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (16.8ms)
+  Rendered twitter_users/search_users.js.erb (30.7ms)
+Completed 200 OK in 2861ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:37:13 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cU4iz1zmGBsy5mMrP5yxD5/aW746jjAitTt1vq1og4WXF0DtzV/JJW+svskok2leTejSoSlRArDRY5J95umrUw==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.5ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:37:13 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+Completed 200 OK in 119ms (Views: 117.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:37:38 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 2407ms (Views: 2404.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-bfaddbc8106d4a80b56627b396a8cfda2b84253c294807bfdcc7127662dc2934.css?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:37:41 -0500
+
+
+Started GET "/" for ::1 at 2016-05-18 21:37:57 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 87ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:38:01 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (18.7ms)
+  Rendered twitter_users/search_users.js.erb (35.6ms)
+Completed 200 OK in 1727ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:38:03 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ePFm+mMcSA27G3b0UpNZ+XfjWsT2+ztWa2UlA33V4qmeqATY8qWZM+ZRqxZFnIGopdHT2+UkCcQPPcLANlTKfw==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.4ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:38:03 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.3ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 76ms (Views: 74.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:39:30 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 2280ms (Views: 2279.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 21:39:33 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+Completed 200 OK in 156ms (Views: 155.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-2b1173ee5b0c8991b7c5cc2958c8575dbeb3a7dcc25c7a41932cd2c430751b9c.css?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:39:33 -0500
+
+
+Started GET "/" for ::1 at 2016-05-18 21:39:35 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 116ms (Views: 115.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:39:38 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (20.0ms)
+  Rendered twitter_users/search_users.js.erb (35.3ms)
+Completed 200 OK in 1666ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:39:42 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3qpJ43EavbBg068kiDRGEM1nAJf4HzkekUaR4mSEMIQ48yvB4KNsjj2ZcsafO55BH1WJiOvAC4z1HnYhLwUYUg==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.4ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:39:42 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (5.3ms)
+Completed 200 OK in 101ms (Views: 99.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:45:26 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 2572ms (Views: 2570.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-3f634af9155afd206cf1b553e714b2ece04d35461d1a38af1b1a4b74bfc3cd1f.css?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:45:29 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:45:39 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 2038ms (Views: 2037.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/application.self-f77cec7cd82a954186b03e38452f4257e69639d129e7f4a196913aa26bcdea1c.css?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:45:41 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:45:48 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 100ms (Views: 98.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-2b1173ee5b0c8991b7c5cc2958c8575dbeb3a7dcc25c7a41932cd2c430751b9c.css?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:45:48 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:46:22 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 97ms (Views: 95.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-f77cec7cd82a954186b03e38452f4257e69639d129e7f4a196913aa26bcdea1c.css?body=1" for ::1 at 2016-05-18 21:46:22 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:46:22 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:46:23 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:46:36 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+Completed 200 OK in 2349ms (Views: 2347.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-117768bf94868916f55f26aeb3fd1e5eab56e5270b7ddebe987a64bee5169465.css?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:46:38 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:46:39 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:46:39 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:46:39 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:46:39 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:46:39 -0500
+  [1m[36m (25.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProposals (20160422215808)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (21.4ms)[0m  [1mCREATE TABLE "proposals" ("id" serial primary key, "name" character varying, "avatar" character varying, "twitter_handle" character varying, "counter" character varying DEFAULT '0', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422215808"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'proposals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2016-05-18 21:53:47 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_header.html.erb (8.2ms)
+Completed 200 OK in 948ms (Views: 938.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/application.self-117768bf94868916f55f26aeb3fd1e5eab56e5270b7ddebe987a64bee5169465.css?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:53:49 -0500
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:54:24 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (28.2ms)
+  Rendered twitter_users/search_users.js.erb (42.8ms)
+Completed 200 OK in 1555ms (Views: 60.1ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:54:28 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b5NP4PE2YA/+GAOPcYYTmxYn+ngVm67zBVOeVrfX3V2Jyi3CYI+xMaNS3m1micvKxBVzZwZEnGFhC3mV/Fb1iw==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.4ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mProposal Exists (0.8ms)[0m  SELECT  1 AS one FROM "proposals" WHERE "proposals"."twitter_handle" = 'ibarroladt' LIMIT 1
+  [1m[36mSQL (6.3ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Javier Ibarrola"], ["avatar", "http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg"], ["twitter_handle", "ibarroladt"], ["created_at", "2016-05-19 02:54:28.124451"], ["updated_at", "2016-05-19 02:54:28.124451"]]
+  [1m[35m (5.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 60ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:54:28 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 79ms (Views: 77.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:55:33 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.4ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+Completed 200 OK in 2296ms (Views: 2294.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/application.self-57ec8949589c2ab5a1184fe7bdf16ed284ef19d571100822acd17db77d8c4cf6.css?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:55:35 -0500
+
+
+Started GET "/" for ::1 at 2016-05-18 21:55:39 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 92ms (Views: 90.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:55:42 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (19.3ms)
+  Rendered twitter_users/search_users.js.erb (33.8ms)
+Completed 200 OK in 1807ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:55:46 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MQER8E0/sabXpRx3EokPEnniXCJ+xkPKQ03qiO8kEKHXWHPS3IZgmIrvwZUFhtdDq9DVPW0ZcVgnFQ1LpKU4dw==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.3ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms)
+
+TypeError (no implicit conversion of Fixnum into String):
+  app/controllers/proposals_controller.rb:47:in `add_proposal'
+
+
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.3ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (111.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.9ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (102.8ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (201.7ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:56:45 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (37.1ms)
+  Rendered twitter_users/search_users.js.erb (52.6ms)
+Completed 200 OK in 1874ms (Views: 65.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:56:47 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (23.4ms)
+  Rendered twitter_users/search_users.js.erb (42.0ms)
+Completed 200 OK in 1485ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:56:49 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bo/UwjXd8BX6fwzSf1T3IICFFzDoNi6AjXZt5yc97iSI1rbgpGQhK6c10TBoWy9xUreeL/vpHBLpLookbLzG8g==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.4ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+
+TypeError (no implicit conversion of Fixnum into String):
+  app/controllers/proposals_controller.rb:47:in `add_proposal'
+
+
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (97.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (2.2ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (91.8ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (190.1ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:56:49 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (18.2ms)
+  Rendered twitter_users/search_users.js.erb (32.3ms)
+Completed 200 OK in 1812ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:57:07 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bo/UwjXd8BX6fwzSf1T3IICFFzDoNi6AjXZt5yc97iSI1rbgpGQhK6c10TBoWy9xUreeL/vpHBLpLookbLzG8g==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 9.2ms)
+
+TypeError (no implicit conversion of Fixnum into String):
+  app/controllers/proposals_controller.rb:47:in `+'
+  app/controllers/proposals_controller.rb:47:in `add_proposal'
+
+
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (104.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.9ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (88.2ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (194.8ms)
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProposals (20160422215808)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "proposals" ("id" serial primary key, "name" character varying, "avatar" character varying, "twitter_handle" character varying, "counter" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422215808"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'proposals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2016-05-18 21:58:17 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_header.html.erb (7.3ms)
+Completed 200 OK in 791ms (Views: 779.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:58:21 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (40.4ms)
+  Rendered twitter_users/search_users.js.erb (54.8ms)
+Completed 200 OK in 1661ms (Views: 69.5ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:58:24 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1MFO7UvUlZy76ybe8WeNCy/TGXWLMUACG/Ddt/LSCQkymCzP2m1Eouah+zzmaFVa/eGQapjucpB/qDp0uVMh3w==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.5ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mProposal Exists (0.4ms)[0m  SELECT  1 AS one FROM "proposals" WHERE "proposals"."twitter_handle" = 'ibarroladt' LIMIT 1
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Javier Ibarrola"], ["avatar", "http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg"], ["twitter_handle", "ibarroladt"], ["created_at", "2016-05-19 02:58:24.559801"], ["updated_at", "2016-05-19 02:58:24.559801"]]
+  [1m[35m (6.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 52ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:58:24 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.7ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 92ms (Views: 89.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 21:58:30 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 88ms (Views: 87.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 21:58:33 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (14.8ms)
+  Rendered twitter_users/search_users.js.erb (29.1ms)
+Completed 200 OK in 1754ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 21:58:36 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EQpB1X5nw+4Gze/DU1npTSLwCF4hpoB+qvujjHbohi33UyP3794S0FuHMiFEVjEc8MKBQTJ5suzOo0RPPWmu+w==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.3ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:58:36 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 104ms (Views: 102.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 21:59:33 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 69ms (Views: 67.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-57ec8949589c2ab5a1184fe7bdf16ed284ef19d571100822acd17db77d8c4cf6.css?body=1" for ::1 at 2016-05-18 21:59:33 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 21:59:33 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 21:59:33 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 21:59:33 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 21:59:34 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:00:05 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+Completed 200 OK in 93ms (Views: 91.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-57ec8949589c2ab5a1184fe7bdf16ed284ef19d571100822acd17db77d8c4cf6.css?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 22:00:06 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:00:15 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 80ms (Views: 78.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/application.self-57ec8949589c2ab5a1184fe7bdf16ed284ef19d571100822acd17db77d8c4cf6.css?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 22:00:15 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:00:40 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 85ms (Views: 83.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-57ec8949589c2ab5a1184fe7bdf16ed284ef19d571100822acd17db77d8c4cf6.css?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 22:00:40 -0500
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:00:46 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 92ms (Views: 91.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/application.self-57ec8949589c2ab5a1184fe7bdf16ed284ef19d571100822acd17db77d8c4cf6.css?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/proposal.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-18 22:00:46 -0500
+
+
+Started GET "/" for ::1 at 2016-05-18 22:00:51 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+Completed 200 OK in 86ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 22:00:55 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (18.0ms)
+  Rendered twitter_users/search_users.js.erb (32.2ms)
+Completed 200 OK in 1848ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 22:01:01 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8bKhDz6amm79LH2ZpoaNU3lQS1eX+zjAC5deibLI1bwX68MtryNLUKBmoHuxiVUCq2LCSIQkClJvz7lK+Un9ag==", "proposal"=>{"name"=>"maite ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/1043307590/CSC_0659_normal.jpg", "twitter_handle"=>"MaiteIbarrola"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.3ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "MaiteIbarrola"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mProposal Exists (0.2ms)[0m  SELECT  1 AS one FROM "proposals" WHERE "proposals"."twitter_handle" = 'MaiteIbarrola' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "maite ibarrola"], ["avatar", "http://pbs.twimg.com/profile_images/1043307590/CSC_0659_normal.jpg"], ["twitter_handle", "MaiteIbarrola"], ["created_at", "2016-05-19 03:01:01.440109"], ["updated_at", "2016-05-19 03:01:01.440109"]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:01:01 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.2ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 82ms (Views: 80.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 22:01:03 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 87ms (Views: 86.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 22:01:07 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (15.9ms)
+  Rendered twitter_users/search_users.js.erb (29.7ms)
+Completed 200 OK in 1469ms (Views: 44.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 22:01:09 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"anZPefpSmPxl3/7/ShHP1gpnqEpRYQCM/Ll02TT8DICMLy1ba+tJwjiVIx1dHheH2FUhVUK+Mh6Y4ZMaf30kVg==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.3ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:01:09 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+Completed 200 OK in 92ms (Views: 90.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 22:01:16 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 85ms (Views: 84.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 22:01:20 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (15.6ms)
+  Rendered twitter_users/search_users.js.erb (34.8ms)
+Completed 200 OK in 2164ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 22:01:40 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"26ewF8VM7pJDXYIiwIbAz9ly9mxrjl92Dhkb+A/I7j89/tI1VPU/rB4XX8DXiRieC0B/c3hRbeRqQfw7REnG6Q==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.2ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ibarroladt"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mProposal Exists (0.6ms)[0m  SELECT  1 AS one FROM "proposals" WHERE ("proposals"."twitter_handle" = 'ibarroladt' AND "proposals"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "proposals" SET "counter" = $1, "updated_at" = $2 WHERE "proposals"."id" = $3[0m  [["counter", 1], ["updated_at", "2016-05-19 03:01:40.304664"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 31ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:01:40 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.3ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+Completed 200 OK in 100ms (Views: 98.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2016-05-18 22:01:54 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 85ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-18 22:01:57 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (30.7ms)
+  Rendered twitter_users/search_users.js.erb (46.3ms)
+Completed 200 OK in 1306ms (Views: 60.8ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-18 22:02:00 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8pNguqvNnOEkG66OThHOEt5u+OiEz2G4u71F0nfjBwMUygKYOnRN33lRc2xZHhZDDFxx95cQUyrf5aIRPGIv1Q==", "proposal"=>{"name"=>"Javier Ibarrola", "avatar"=>"http://pbs.twimg.com/profile_images/378800000791277818/a5f8fc53e85d693e29eb2bec41e2cd7a_normal.jpeg", "twitter_handle"=>"ibarroladt"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.3ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "ibarroladt"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mProposal Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "proposals" WHERE ("proposals"."twitter_handle" = 'ibarroladt' AND "proposals"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "proposals" SET "counter" = $1, "updated_at" = $2 WHERE "proposals"."id" = $3  [["counter", 2], ["updated_at", "2016-05-19 03:02:00.501258"], ["id", 1]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-18 22:02:00 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 89ms (Views: 87.5ms | ActiveRecord: 0.6ms)

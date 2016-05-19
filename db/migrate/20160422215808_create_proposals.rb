@@ -4,6 +4,7 @@ class CreateProposals < ActiveRecord::Migration
       t.string :name
       t.string :avatar
       t.string :twitter_handle
+      t.integer :counter, default: 0
 
       t.timestamps null: false
     end

@@ -12,14 +12,11 @@
 // Jumbotron
 
 .jumbotron {
-	
-		color: #3F3F3F;
-    background-color: rgba(255, 255, 255, 0.21);
-    margin-top: 50px;
-    border: none;
-    font-family: Calibri;
+	color: #3F3F3F;
+  background-color: rgba(255, 255, 255, 0.21);
+  margin-top: 75px;
+  border: none;
 }
-
 
 // Centra la ul para poner una nav a la mitad
 
@@ -98,11 +95,11 @@ h1 {
 }
 
 .alert {
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .alert-success {
-    background-color: #337AB7;
+		background-color: rgba(51, 122, 183, 0.85);
     border: none;
     color: #FFF;
 }

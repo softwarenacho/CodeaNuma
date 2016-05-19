@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20160422215808) do
     t.string   "name"
     t.string   "avatar"
     t.string   "twitter_handle"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "counter",        default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
