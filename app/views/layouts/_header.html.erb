@@ -1,6 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to image_tag("tag_logo.png", alt: "tag", :height => 40) , root_path, class: "logo", id: "logo_tag" %>
+    	<ul class="nav navbar-nav" style="text-align:center">
+    		<li><%= link_to "Propón con Twitter", root_path %></li>
+    		<li><%= link_to "Propuestas", proposals_path %></li>
+    		<li><%= link_to "Nueva propuesta", new_proposal_path %></li>
+    	</ul>
     <%= link_to image_tag("codeacamp_logo.png", alt: "Codea", :height => 40) , root_path, class: "logo", id: "logo_codea" %>
     <nav>
       

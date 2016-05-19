@@ -9,6 +9,29 @@
 	clear:both;
 }
 
+// Jumbotron
+
+.jumbotron {
+	
+		color: #3F3F3F;
+    background-color: rgba(255, 255, 255, 0.21);
+    margin-top: 50px;
+    border: none;
+    font-family: Calibri;
+}
+
+
+// Centra la ul para poner una nav a la mitad
+
+.navbar {
+  text-align:center;
+}
+
+.navbar-nav {
+    display:inline-block;
+    float:none;
+}
+
 .logo {
   margin-top: -3px;
   margin-right: 10px;
@@ -30,7 +53,7 @@
 
 #first_section {
 	background:#89E2CA;
-	height: 250px;
+	min-height: 250px;
 }
 
 h1 {

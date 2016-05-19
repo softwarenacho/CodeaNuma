@@ -9,9 +9,10 @@ class ProposalsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.new(proposal_params)
+    
+    @proposal = Proposal.find_or_create_by_name(proposal_params[:name])
     if @proposal.save
-      redirect_to root_path
+      redirect_to proposals_path
     else
       render 'new'
     end
@@ -29,7 +30,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     if @proposal.update(proposal_params)
       flash[:success] = "Propuesta actualizada"
-      redirect_to root_path
+      redirect_to proposals_path
     else
       render 'edit'
     end
@@ -38,17 +39,13 @@ class ProposalsController < ApplicationController
   def destroy
     Proposal.find(params[:id]).destroy
     flash[:success] = "Propuesta borrada"
-    redirect_to root_url
+    redirect_to proposals_path
   end
 
-  def add_proposal
-    p "Entre a add proposal"
-    p params
-
-    @proposal = Proposal.new(proposal_params)
-    if @proposal.save
+  def add_proposal    
+    if @proposal = Proposal.create_with(proposal_params).find_or_create_by(twitter_handle: proposal_params[:twitter_handle])
       flash[:success] = "Propuesta Agregada"
-      redirect_to root_path
+      redirect_to proposals_path
     else
       render 'new'
     end
