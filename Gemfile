@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -47,6 +47,10 @@ group :development do
 end
 
 gem 'twitter'
+
+gem 'simple_form'
+# Correr este comando para que sirva simple form con boostrap
+# rails generate simple_form:install --bootstrap
 
 
 

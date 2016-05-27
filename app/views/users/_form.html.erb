@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+		<%= simple_form_for @user, :html => {:multipart => true} do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<%= f.input :name, label:"Nombre", :class =>  "form-control" %>
+		<br>
+		<%= f.input :email, label:"Email", :class =>  "form-control" %>
+		<br>
+		<% if params[:action] == 'new' || params[:action] == 'create' %>	
+		<%= f.input :password, label:"Contraseña", class: "form-control" %>
+		<br>
+		<%= f.input :password_confirmation, label:"Confirmación de Contraseña", class: "form-control" %>
+		<br>
+		<% end %>
+
+		<% if params[:action]=='new' %>
+		<%= f.submit "Crear Usuario", class: "btn btn-large btn-primary" %>
+		<% else %>
+		<%= f.submit "Guardar Cambios", class: "btn btn-large btn-primary" %>
+		<% end %>
+		<% end %>
+	</div>
+</div>
+

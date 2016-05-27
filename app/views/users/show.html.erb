@@ -1,0 +1,19 @@
+<br>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= link_to "Cambiar contraseña", edit_password_reset_path(@user), class: "btn btn-danger pull-right" %>
+		<%= link_to "Editar Perfil", edit_user_path, class: "btn btn-primary pull-right" %>
+		<br><br><br>
+		<h2 class="text-center"><%= "Hola #{current_user.name}"%></h2>
+		<br>
+		<p>Este es tu perfil donde encontrarás tu Api Token, con el cual podrás acceder a la Api de Codea para poder enviar las propuestas creadas en tu applicación para que se junten con la de todas las demás personas. </p>
+		<br>
+		<p>Email: <%= current_user.email %></p>
+		<p>Api Token: <%= current_user.api_token %></p>
+	</div>
+</div>
+
+
+
+
+

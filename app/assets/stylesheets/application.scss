@@ -9,6 +9,10 @@
 	clear:both;
 }
 
+.pull-right {
+	margin-left:5px;
+}
+
 // Jumbotron
 
 .jumbotron {
@@ -79,6 +83,7 @@ h1 {
 	border: 1px solid #ddd;
 	margin-top: 10px;
 	padding-left: 0px;
+	padding-right: 5px;
 }
 
 .search_thumbnails div{
@@ -87,11 +92,21 @@ h1 {
 
 .search_btn {
 	float:right;
-	margin-top: 12px;
+	margin-top: 6px;
+}
+
+.search_btn a {
+	display: block;
+	border: none;
+
+}
+
+.search_btn form {
+	margin-top: 7px;
 }
 
 .search_caption {
-	margin-left: 12px;
+	// margin-left: -8px;
 }
 
 .alert {
@@ -109,7 +124,11 @@ h1 {
 	margin-bottom: 10px;
 }
 
-
+.counter {
+	margin-top: -50px;
+  margin-left: -13px;
+  border-radius: 20px;
+}
 
 
 
