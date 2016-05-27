@@ -5,6 +5,12 @@
     		<li><%= link_to "Propón con Twitter", root_path %></li>
     		<li><%= link_to "Propuestas", proposals_path %></li>
     		<li><%= link_to "Nueva propuesta", new_proposal_path %></li>
+          <% unless(signed_in?) %>
+            <li><%= link_to "Iniciar Sesión", signin_path %></li>
+            <li><%= link_to "Nuevo Usuario", new_user_path %></li>
+          <% else %>
+            <li><%= link_to "Log out", signout_path, method: "delete" %></li>
+          <% end %>    		
     	</ul>
     <%= link_to image_tag("codeacamp_logo.png", alt: "Codea", :height => 40) , root_path, class: "logo", id: "logo_codea" %>
     <nav>
@@ -12,3 +18,4 @@
     </nav>
   </div>
 </header>
+

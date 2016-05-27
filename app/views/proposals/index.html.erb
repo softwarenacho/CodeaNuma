@@ -12,11 +12,12 @@
         <div class="search_thumbnails col-sm-6 col-md-3">
           <div class="search_img">
             <%= image_tag("#{proposal.avatar}", size: "48x48") %>
+            <div class="btn btn-danger btn-xs counter"><%= proposal.counter %></div>
           </div>
           <div class="search_caption">
-            <h5><%= "#{proposal.name}  (#{proposal.counter})" %></h5>
+            <h5><%= proposal.name %></h5>
           </div>
-          <div class="search_btn">
+          <div class="search_btn">            
             <%= link_to "E", edit_proposal_path(proposal), class: "btn btn-default btn-xs" %>
             <%= link_to "X", proposal_path(proposal),
             method: :delete,
