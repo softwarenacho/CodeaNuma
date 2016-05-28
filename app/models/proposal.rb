@@ -12,7 +12,7 @@ class Proposal < ActiveRecord::Base
 
   def send_to_codea
       api_token = "54bc6608e61a68f1c6c6e4d411e63a6b"
-      url = "http://localhost:3000/?api_token=#{api_token}&name=#{self.name}&avatar=#{self.avatar}&twitter_handle=#{self.twitter_handle}"
+      url = "http://codeatag.herokuapp.com/?api_token=#{api_token}&name=#{self.name}&avatar=#{self.avatar}&twitter_handle=#{self.twitter_handle}"
       encoded_url = URI.encode(url)
       http_request = Net::HTTP.get_response(URI.parse(encoded_url)).body
       data = ActiveSupport::JSON.decode(http_request) #.to_json
