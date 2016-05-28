@@ -44,3 +44,17 @@ CLIENT = Twitter::REST::Client.new do |config|
   config.access_token        = Rails.application.secrets.access_token
   config.access_token_secret = Rails.application.secrets.access_token_secret
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
