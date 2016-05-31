@@ -59,8 +59,10 @@ class ProposalsController < ApplicationController
       params.require(:proposal).permit(:name, :avatar, :twitter_handle)
     end
 
-    def api_access
+    def api_access      
       api_token = User.find_by_api_token(params[:api_token])
+      puts "P"*100
+      puts api_token
       head :unauthorized unless api_token
     end
 
