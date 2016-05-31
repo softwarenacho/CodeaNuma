@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
 
-  before_action :api_access, only: [:api_create]
+  # before_action :api_access, only: [:api_create]
 
   def index
     @proposal  = Proposal.new
