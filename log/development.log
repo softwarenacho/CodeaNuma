@@ -42007,3 +42007,169 @@ Processing by UsersController#new as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "cee90e6e2f0905b320ca0b12e71ddc4102232d9d"]]
   Rendered layouts/_header.html.erb (5.4ms)
 Completed 200 OK in 185ms (Views: 175.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2016-05-30 19:17:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (26.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (12.2ms)
+  [1m[35mUser Load (23.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "fb033532ba7a8ca3845cdeeec8f6b7c5e8f7a9f3"]]
+  Rendered layouts/_header.html.erb (67.5ms)
+Completed 200 OK in 700ms (Views: 641.8ms | ActiveRecord: 37.3ms)
+
+
+Started GET "/assets/application.self-d215f9790d615d1ef80c5005e17a2d3f981e505e62ce1c7df610cbea88dc955e.css?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-05-30 19:17:08 -0500
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=CH&button=" for ::1 at 2016-05-30 19:17:12 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"CH"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (25.4ms)
+  Rendered twitter_users/search_users.js.erb (42.3ms)
+Completed 200 OK in 1394ms (Views: 64.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-30 19:17:17 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JgB2CW4KSdH19Bd2Ydxut0mAN6j2BZk0BZ8AiHJMbT7AWRQr/7OY76i+ypR207bmm7K+t+Xaq6Zhx+dLOc1F6A==", "proposal"=>{"name"=>"Amy Freeze", "avatar"=>"http://pbs.twimg.com/profile_images/461598887829307394/OsGmHBCM_normal.jpeg", "twitter_handle"=>"AmyFreeze7"}, "commit"=>"+"}
+  [1m[36mProposal Load (7.7ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "AmyFreeze7"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (26.8ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Amy Freeze"], ["avatar", "http://pbs.twimg.com/profile_images/461598887829307394/OsGmHBCM_normal.jpeg"], ["twitter_handle", "AmyFreeze7"], ["created_at", "2016-05-31 00:17:17.189725"], ["updated_at", "2016-05-31 00:17:17.189725"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 36.0ms)
+
+JSON::ParserError (814: unexpected token at '<!DOCTYPE html>
+<html>
+<head>
+  <title>CodeaTAG</title>
+  <link rel="stylesheet" media="all" href="/assets/application-931cdbe4e8b69eb26f1f79d3aa45e2a68344f215d828346e660b8554e20e9b5b.css" data-turbolinks-track="true" />
+  <script src="/assets/application-fb60081ebdd4a9ccda2bd61fca80df458af0f61a7617e6e1a0792ce7ef17afc0.js" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="f2zgffB7ZQ/DE34kwTwNCjaSkCYTy36aDUnfB5ttdn3TtTgl9tsByWMOcFf90ecvQqCXYYdYTLm9iTUKrV2I7g==" />
+</head>
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <a class="logo" id="logo_tag" href="/"><img alt="tag" height="40" src="/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" /></a>
+    	<ul class="nav navbar-nav" style="text-align:center">
+    		<li><a href="/">Propón con Twitter</a></li>
+    		<li><a href="/proposals">Propuestas</a></li>
+    		<li><a href="/proposals/new">Nueva propuesta</a></li>
+            <li><a href="/signin">Iniciar Sesión</a></li>
+            <li><a href="/users/new">Nuevo Usuario</a></li>
+    	</ul>
+    <a class="logo" id="logo_codea" href="/"><img alt="Codea" height="40" src="/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" /></a>
+    <nav>
+      
+    </nav>
+  </div>
+</header>
+
+
+  <div id="content">
+  <div id="flash_div">
+	</div>  
+    <div id="first_section">
+	<div class="container">	
+		<h1 class="title text-center">¿Cuál es tu propuesta de Speaker?</h1>
+		<div class="row">
+			<form class="form-inline" action="/twitter_search" accept-charset="UTF-8" data-remote="true" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+
+			<div class="input-group form-group-lg col-md-offset-2 col-md-6 ">
+				<div class="input-group-addon">@</div>
+				<input class="form-control" type="text" name="twitter[search]" id="twitter_search" />
+			</div>
+
+			<div class="input-group col-md-2">
+				<button name="button" type="submit" class="btn btn-lg btn-primary btn-block">Search</button>				
+			</div>
+</form>		</div><!-- first_section -->
+	</div><!-- container -->
+</div>
+<div id="search_results" class="row">	
+</div>
+
+
+
+  <div class="clear"></div>
+  </div>
+</body>
+</html>
+'):
+  app/models/proposal.rb:18:in `send_to_codea'
+  app/controllers/proposals_controller.rb:62:in `add_proposal'
+
+
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (103.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (102.2ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (209.1ms)
+  [1m[36mUser Load (24.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProposal Load (2.4ms)[0m  SELECT  "proposals".* FROM "proposals"  ORDER BY "proposals"."id" ASC LIMIT 1
+  [1m[36mProposal Load (5.0ms)[0m  [1mSELECT  "proposals".* FROM "proposals"  ORDER BY "proposals"."id" ASC LIMIT 1[0m
