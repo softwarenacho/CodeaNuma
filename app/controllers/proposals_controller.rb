@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
 
-  # before_action :api_access, only: [:api_create]
+  before_action :api_access, only: [:api_create]
 
   def index
     @proposal  = Proposal.new
@@ -61,8 +61,6 @@ class ProposalsController < ApplicationController
 
     def api_access      
       api_token = User.find_by_api_token(params[:api_token])
-      puts "P"*100
-      puts api_token
       head :unauthorized unless api_token
     end
 
