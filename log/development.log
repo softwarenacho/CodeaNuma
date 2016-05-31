@@ -43355,3 +43355,160 @@ JSON::ParserError (814: unexpected token at '<!DOCTYPE html>
   Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
   Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (123.6ms)
+
+
+Started GET "/" for ::1 at 2016-05-31 09:24:35 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "fb033532ba7a8ca3845cdeeec8f6b7c5e8f7a9f3"]]
+  Rendered layouts/_header.html.erb (25.9ms)
+Completed 200 OK in 120ms (Views: 115.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=CH&button=" for ::1 at 2016-05-31 09:24:41 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"CH"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (42.2ms)
+  Rendered twitter_users/search_users.js.erb (57.6ms)
+Completed 200 OK in 1544ms (Views: 72.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-31 09:24:47 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3j90hxzvlVOIFH8dNJZZK7YMIFST0zIaEHjZFjrRhIw4ZhaljVZEbdVeov8jmYF6ZD6pS4AMAIh0ID7VcVCsWg==", "proposal"=>{"name"=>"storme warren", "avatar"=>"http://pbs.twimg.com/profile_images/733008992126050304/inH6ipH6_normal.jpg", "twitter_handle"=>"stormewarren"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "stormewarren"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "storme warren"], ["avatar", "http://pbs.twimg.com/profile_images/733008992126050304/inH6ipH6_normal.jpg"], ["twitter_handle", "stormewarren"], ["created_at", "2016-05-31 14:24:47.628855"], ["updated_at", "2016-05-31 14:24:47.628855"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 500 Internal Server Error in 690ms (ActiveRecord: 2.4ms)
+
+JSON::ParserError (814: unexpected token at '<!DOCTYPE html>
+<html>
+<head>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+  body {
+    background-color: #EFEFEF;
+    color: #2E2F30;
+    text-align: center;
+    font-family: arial, sans-serif;
+    margin: 0;
+  }
+
+  div.dialog {
+    width: 95%;
+    max-width: 33em;
+    margin: 4em auto 0;
+  }
+
+  div.dialog > div {
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #BBB;
+    border-top: #B00100 solid 4px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    background-color: white;
+    padding: 7px 12% 0;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }
+
+  h1 {
+    font-size: 100%;
+    color: #730E15;
+    line-height: 1.5em;
+  }
+
+  div.dialog > p {
+    margin: 0 0 1em;
+    padding: 1em;
+    background-color: #F7F7F7;
+    border: 1px solid #CCC;
+    border-right-color: #999;
+    border-left-color: #999;
+    border-bottom-color: #999;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-color: #DADADA;
+    color: #666;
+    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  }
+  </style>
+</head>
+
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="dialog">
+    <div>
+      <h1>The page you were looking for doesn't exist.</h1>
+      <p>You may have mistyped the address or the page may have moved.</p>
+    </div>
+    <p>If you are the application owner check the logs for more information.</p>
+  </div>
+</body>
+</html>
+'):
+  app/models/proposal.rb:19:in `send_to_codea'
+  app/controllers/proposals_controller.rb:50:in `add_proposal'
+
+
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.7ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (126.0ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=CH&button=" for ::1 at 2016-05-31 09:28:37 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"CH"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (25.0ms)
+  Rendered twitter_users/search_users.js.erb (37.6ms)
+Completed 200 OK in 1345ms (Views: 51.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-31 09:28:40 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A3edFAggEgZ2YrW/7EzGz4d7vWwFhgeB5vGx33gzykDlLv82mZnDOCsoaF37Qx6eVUk0cxZZNROCqVYcM7Lilg==", "proposal"=>{"name"=>"storme warren", "avatar"=>"http://pbs.twimg.com/profile_images/733008992126050304/inH6ipH6_normal.jpg", "twitter_handle"=>"stormewarren"}, "commit"=>"+"}
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1[0m  [["twitter_handle", "stormewarren"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "proposals" SET "counter" = $1, "updated_at" = $2 WHERE "proposals"."id" = $3[0m  [["counter", 2], ["updated_at", "2016-05-31 14:28:40.596935"], ["id", 15]]
+  [1m[35m (1.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.3ms)
+
+TypeError (no implicit conversion of nil into String):
+  app/models/proposal.rb:20:in `send_to_codea'
+  app/controllers/proposals_controller.rb:50:in `add_proposal'
+
+
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3@global/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (80.2ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (54.9ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/ibarroladt/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (124.2ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=ibarrola&button=" for ::1 at 2016-05-31 09:31:13 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"ibarrola"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (22.4ms)
+  Rendered twitter_users/search_users.js.erb (35.1ms)
+Completed 200 OK in 1431ms (Views: 49.0ms | ActiveRecord: 1.6ms)

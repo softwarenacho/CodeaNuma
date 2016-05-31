@@ -51,7 +51,9 @@ class ProposalsController < ApplicationController
   end
 
   def api_create
-    create_from_twitter
+    puts "X"*100
+    puts params
+    # create_from_twitter
   end
 
   private

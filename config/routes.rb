@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  match '/api_create',  to: 'proposals#api_create',         via: 'post'
+  
   root  'static_pages#home'
   resources :proposals
 
@@ -16,7 +18,5 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   resources :password_resets, only: [:edit, :update]
-
-  match '/api_create',  to: 'proposals#api_create',         via: 'post'
 
 end
