@@ -46167,3 +46167,88 @@ Processing by ProposalsController#index as HTML
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
   Rendered layouts/_header.html.erb (4.0ms)
 Completed 200 OK in 93ms (Views: 91.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/2" for ::1 at 2016-05-31 12:46:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (7.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 90ms (Views: 78.3ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2016-05-31 12:48:46 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 64ms (Views: 63.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=CH&button=" for ::1 at 2016-05-31 12:49:04 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"CH"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (23.3ms)
+  Rendered twitter_users/search_users.js.erb (37.8ms)
+Completed 200 OK in 1166ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-31 12:49:13 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"id3CmtCKcaPFMG2VI3/3b6szOKhIsJ3s6x2AnQFZIwRvhKC4QTOgnZh6sHc0cC8+eQGxt1tvr36PRWdeStgL0g==", "proposal"=>{"name"=>"Andy Cohen", "avatar"=>"http://pbs.twimg.com/profile_images/705069017338347520/9jYfrdsd_normal.jpg", "twitter_handle"=>"Andy"}, "commit"=>"+"}
+  [1m[35mProposal Load (1.0ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "Andy"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Andy Cohen"], ["avatar", "http://pbs.twimg.com/profile_images/705069017338347520/9jYfrdsd_normal.jpg"], ["twitter_handle", "Andy"], ["created_at", "2016-05-31 17:49:13.889854"], ["updated_at", "2016-05-31 17:49:13.889854"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 205ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-31 12:49:14 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (6.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
+  Rendered layouts/_header.html.erb (3.2ms)
+Completed 200 OK in 68ms (Views: 66.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-05-31 12:49:23 -0500
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=CH&button=" for ::1 at 2016-05-31 12:49:30 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"CH"}, "button"=>""}
+  Rendered twitter_users/_users.html.erb (16.1ms)
+  Rendered twitter_users/search_users.js.erb (29.1ms)
+Completed 200 OK in 2124ms (Views: 43.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/add_proposal" for ::1 at 2016-05-31 12:49:44 -0500
+Processing by ProposalsController#add_proposal as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hx0HQILwe3u/qczgxGW/Mcn+NTmUThn4Pk6467LnQ+f5RGViE0mqReLjEQLTamdgG8y8JoeRK2paFl8o+WZrMQ==", "proposal"=>{"name"=>"Microsoft Channel 9", "avatar"=>"http://pbs.twimg.com/profile_images/2611386052/w444w037nt34ble3kpgf_normal.png", "twitter_handle"=>"ch9"}, "commit"=>"+"}
+  [1m[35mProposal Load (0.5ms)[0m  SELECT  "proposals".* FROM "proposals" WHERE "proposals"."twitter_handle" = $1 LIMIT 1  [["twitter_handle", "ch9"]]
+  [1m[36m (1.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "proposals" ("name", "avatar", "twitter_handle", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["name", "Microsoft Channel 9"], ["avatar", "http://pbs.twimg.com/profile_images/2611386052/w444w037nt34ble3kpgf_normal.png"], ["twitter_handle", "ch9"], ["created_at", "2016-05-31 17:49:44.614495"], ["updated_at", "2016-05-31 17:49:44.614495"]]
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 797ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/proposals" for ::1 at 2016-05-31 12:49:45 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.2ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (5.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
+  Rendered layouts/_header.html.erb (3.4ms)
+Completed 200 OK in 79ms (Views: 77.1ms | ActiveRecord: 0.7ms)

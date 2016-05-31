@@ -47,7 +47,7 @@ class ProposalsController < ApplicationController
 
   def add_proposal 
     create_from_twitter
-    @proposal.send_to_codea
+    # @proposal.send_to_codea
   end
 
   def api_create
