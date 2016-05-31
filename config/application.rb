@@ -35,6 +35,11 @@ module CodeaTAG
   end
 end
 
+env_config = YAML.load_file(APP_ROOT.join('config', 'twitter_secrets.yaml'))
+
+env_config.each do |key, value|
+  ENV[key] = value
+end
 
 # Aquí es donde vamos a pegar el TwitterClient 
 
