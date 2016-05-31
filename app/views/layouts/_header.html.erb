@@ -9,6 +9,7 @@
             <li><%= link_to "Iniciar Sesión", signin_path %></li>
             <li><%= link_to "Nuevo Usuario", new_user_path %></li>
           <% else %>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
             <li><%= link_to "Log out", signout_path, method: "delete" %></li>
           <% end %>    		
     	</ul>

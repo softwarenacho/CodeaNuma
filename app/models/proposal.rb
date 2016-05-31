@@ -11,14 +11,17 @@ class Proposal < ActiveRecord::Base
   end
 
   def send_to_codea
-      api_token = "d4fbea6b599cc35a36b31de388ffdaff"
-      url = "http://codeatag.herokuapp.com/api_create?api_token=#{api_token}&proposal[name]=#{self.name}&proposal[avatar]=#{self.avatar}&proposal[twitter_handle]=#{self.twitter_handle}"
-      # url = "http://localhost:3000//?api_token=#{api_token}&name=#{self.name}&avatar=#{self.avatar}&twitter_handle=#{self.twitter_handle}"
-      encoded_url = URI.encode(url)
-      # http_request = Net::HTTP.get_response(URI.parse(encoded_url)).body
-      http_request = Net::HTTP::Post.new(URI.parse(encoded_url)).body
-      # data = ActiveSupport::JSON.decode(http_request) #.to_json
+      api_token = Rails.application.secrets.codea_tag_api_token            
+      url = "http://codeatag.herokuapp.com/api_create"
+      params = {"api_token" => api_token, 
+                "proposal[name]"=> self.name, 
+                "proposal[avatar]" => self.avatar, 
+                "proposal[twitter_handle]" => self.twitter_handle}        
+      Net::HTTP.post_form(URI.parse(url), params)  
   end
 
 end
+
+
+
 
