@@ -46252,3 +46252,246 @@ Processing by ProposalsController#index as HTML
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "70fc54faccde7bd8f0e3f14c02154a9a5de8c41e"]]
   Rendered layouts/_header.html.erb (3.4ms)
 Completed 200 OK in 79ms (Views: 77.1ms | ActiveRecord: 0.7ms)
+  [1m[36m (335.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (88.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProposals (20160422215808)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (124.1ms)[0m  [1mCREATE TABLE "proposals" ("id" serial primary key, "name" character varying, "avatar" character varying, "twitter_handle" character varying, "counter" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (28.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160422215808"]]
+  [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20160519162739)
+  [1m[35m (0.3ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/nacho/Dropbox/CodeaNacho/CodeaTAG/db/migrate/20160519162739_create_users.rb:12)
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "phone" character varying, "password_digest" character varying, "admin" boolean DEFAULT 'f', "remember_token" character varying, "api_token" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160519162739"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'proposals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for ::1 at 2016-06-02 19:48:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (14.7ms)
+  [1m[35mUser Load (185.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "b1a0b9610ff4359f8d301765ef1b35579c77a904"]]
+  Rendered layouts/_header.html.erb (1166.9ms)
+Completed 200 OK in 15638ms (Views: 15383.8ms | ActiveRecord: 192.1ms)
+
+
+Started GET "/assets/application.self-2971f01fd8b5802d299ee8c445af67679eeef12dae394a528c291c460cb7e46e.css?body=1" for ::1 at 2016-06-02 19:48:50 -0500
+
+
+Started GET "/twitter_search?utf8=%E2%9C%93&twitter%5Bsearch%5D=stan+lee&button=" for ::1 at 2016-06-02 19:49:13 -0500
+Processing by TwitterUsersController#search_users as JS
+  Parameters: {"utf8"=>"✓", "twitter"=>{"search"=>"stan lee"}, "button"=>""}
+Completed 500 Internal Server Error in 3914ms (ActiveRecord: 0.0ms)
+
+Twitter::Error::Forbidden (Unable to verify your credentials):
+  app/controllers/twitter_users_controller.rb:6:in `search_users'
+
+
+  Rendered /Users/nacho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/nacho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.3ms)
+  Rendered /Users/nacho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /Users/nacho/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (142.3ms)
+
+
+Started GET "/" for ::1 at 2016-06-02 19:57:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (317.7ms)
+  [1m[35mUser Load (112.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "b1a0b9610ff4359f8d301765ef1b35579c77a904"]]
+  Rendered layouts/_header.html.erb (448.4ms)
+Completed 200 OK in 12950ms (Views: 12722.7ms | ActiveRecord: 115.1ms)
+
+
+Started GET "/assets/application.self-2971f01fd8b5802d299ee8c445af67679eeef12dae394a528c291c460cb7e46e.css?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-02 19:57:23 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-06-02 19:57:24 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-06-02 19:57:24 -0500
+
+
+Started GET "/proposals/new" for ::1 at 2016-06-02 20:01:25 -0500
+Processing by ProposalsController#new as HTML
+  Rendered proposals/new.html.erb within layouts/application (79.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "b1a0b9610ff4359f8d301765ef1b35579c77a904"]]
+  Rendered layouts/_header.html.erb (103.0ms)
+Completed 200 OK in 2015ms (Views: 1625.0ms | ActiveRecord: 335.7ms)
+
+
+Started POST "/proposals" for ::1 at 2016-06-02 20:02:25 -0500
+Processing by ProposalsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OQL9ny2p17OF62jVz5Ab8M+05cg1cD21b05F5T3cnUke2EdTgygHehe4SIPHESId3BX/+T2b5ObbZKPIiUzEHg==", "proposal"=>{"name"=>"Ray Loriga", "avatar"=>"http://www.sax.es/files/images/ray%20loriga.jpg"}, "commit"=>"Crear"}
+  [1m[35m (250.3ms)[0m  BEGIN
+  [1m[36mSQL (1242.8ms)[0m  [1mINSERT INTO "proposals" ("name", "avatar", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Ray Loriga"], ["avatar", "http://www.sax.es/files/images/ray%20loriga.jpg"], ["created_at", "2016-06-03 01:02:26.034891"], ["updated_at", "2016-06-03 01:02:26.034891"]]
+  [1m[35m (223.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/proposals
+Completed 302 Found in 1930ms (ActiveRecord: 1716.0ms)
+
+
+Started GET "/proposals" for ::1 at 2016-06-02 20:02:27 -0500
+Processing by ProposalsController#index as HTML
+  [1m[36m (1.2ms)[0m  [1mSELECT COUNT(*) FROM "proposals"[0m
+  [1m[35mProposal Load (0.9ms)[0m  SELECT "proposals".* FROM "proposals"
+  Rendered proposals/index.html.erb within layouts/application (18.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "b1a0b9610ff4359f8d301765ef1b35579c77a904"]]
+  Rendered layouts/_header.html.erb (81.9ms)
+Completed 200 OK in 1883ms (Views: 1878.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/proposals" for ::1 at 2016-06-02 20:10:59 -0500
+Processing by ProposalsController#index as HTML
+  [1m[35m (1.4ms)[0m  SELECT COUNT(*) FROM "proposals"
+  [1m[36mProposal Load (0.6ms)[0m  [1mSELECT "proposals".* FROM "proposals"[0m
+  Rendered proposals/index.html.erb within layouts/application (26.1ms)
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1  [["remember_token", "b1a0b9610ff4359f8d301765ef1b35579c77a904"]]
+  Rendered layouts/_header.html.erb (336.3ms)
+Completed 200 OK in 16691ms (Views: 16666.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.self-4ddb590a4f5a2fe5791f03ed7ee7e4a2500ccb58bb3c2595d689c43f85876aa8.css?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for ::1 at 2016-06-02 20:11:17 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png" for ::1 at 2016-06-02 20:11:19 -0500
+
+
+Started GET "/users/new" for ::1 at 2016-06-02 20:15:40 -0500
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (1.8ms)
+  Rendered users/_form.html.erb (408.2ms)
+  Rendered users/new.html.erb within layouts/application (428.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1 LIMIT 1[0m  [["remember_token", "b1a0b9610ff4359f8d301765ef1b35579c77a904"]]
+  Rendered layouts/_header.html.erb (48.7ms)
+Completed 200 OK in 1126ms (Views: 1071.2ms | ActiveRecord: 2.6ms)

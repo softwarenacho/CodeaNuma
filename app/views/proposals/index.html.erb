@@ -10,8 +10,8 @@
     <% if @proposals.any? %>
       <% @proposals.each do |proposal| %>
         <div class="search_thumbnails col-sm-6 col-md-3">
-          <div class="search_img">
-            <%= image_tag("#{proposal.avatar}", size: "48x48") %>
+          <div class="search_img proposal_box">
+            <%= image_tag(proposal.avatar, class:"img_box")%>
             <div class="btn btn-danger btn-xs counter"><%= proposal.counter %></div>
           </div>
           <div class="search_caption">
