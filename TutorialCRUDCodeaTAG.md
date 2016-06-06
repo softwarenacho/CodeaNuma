@@ -299,7 +299,7 @@ La forma anterior se enviará a la acción de `create` de nuestro controlador. P
 ``` ruby
   def create
     @proposal = Proposal.new(proposal_params)
-
+    flash[:success] = "Propuesta Agregada"
     @proposal.save
     redirect_to proposals_path
   end
@@ -569,12 +569,12 @@ Una vez que hemos hecho esto dentro del mismo folder vamos a crear el archivo '_
 ```erb
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to image_tag("http://codeatag.herokuapp.com/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png", alt: "tag", :height => 40) , root_path, class: "logo", id: "logo_tag" %>
+    <%= link_to image_tag("http://codeatag.herokuapp.com/assets/tag_logo-394f282e31e3ec624989e06880ff128e31b78213d137e2eb078c26b4d560c4f1.png", alt: "tag", :height => 40) , "http://tagfestival.com/", class: "logo", id: "logo_tag" %>
     	<ul class="nav navbar-nav" style="text-align:center">
     		<li><%= link_to "Propuestas", root_path %></li>
     		<li><%= link_to "Nueva propuesta", new_proposal_path %></li>
     	</ul>
-    <%= link_to image_tag("http://codeatag.herokuapp.com/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png", alt: "Codea", :height => 40) , root_path, class: "logo", id: "logo_codea" %>
+    <%= link_to image_tag("http://codeatag.herokuapp.com/assets/codeacamp_logo-33e6d9abba6ded2b8cc0144f86cdf60c3c5c00e5302194e6d7e3a10f0edfd3fb.png", alt: "Codea", :height => 40) , "http://codea.mx/", class: "logo", id: "logo_codea" %>
     <nav>
       
     </nav>
@@ -674,7 +674,7 @@ La forma anterior se enviará a la acción de `update` de nuestro controlador.  
   def update
     @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
-
+    flash[:success] = "Propuesta actualizada"
     redirect_to proposal_path
   end
 ```
@@ -689,7 +689,7 @@ La última funcionalidad que nos falta es poder borrar una `proposal`. Para esto
   def destroy
     @proposal = Proposal.find(params[:id])
     @proposal.destroy
-
+    flash[:danger] = "Propuesta borrada"
     redirect_to proposals_path
   end
 ```
@@ -708,13 +708,13 @@ class ProposalsController < ApplicationController
   
   def create
     @proposal = Proposal.new(proposal_params)
-
     @proposal.save
+    flash[:success] = "Propuesta Agregada"
     redirect_to proposals_path
   end
   
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.all.order(:name)
     # render 'proposals/index.html.erb'
   end
   
@@ -731,14 +731,14 @@ class ProposalsController < ApplicationController
   def update
     @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
-
+    flash[:success] = "Propuesta actualizada"
     redirect_to proposal_path
   end
   
   def destroy
     @proposal = Proposal.find(params[:id])
     @proposal.destroy
-
+    flash[:danger] = "Propuesta borrada"
     redirect_to proposals_path
   end
 
@@ -748,6 +748,7 @@ class ProposalsController < ApplicationController
     params.require(:proposal).permit(:name, :avatar)
   end
 end
+
 ```
 
 **Con todos estos pasos ya tenemos listo el recurso que hace funcionar todas las acciones CRUD que explicamos al inicio.**
