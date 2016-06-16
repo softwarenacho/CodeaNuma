@@ -125,10 +125,16 @@ h1 {
 }
 
 .counter {
-    margin-top: -100px;
+    margin-top: -112px;
     margin-left: 38px;
-    border-radius: 25px;
+    width: 22px;
+    border-radius: 50%;
     z-index: 1;
+}
+
+.img_container {
+	width: 48px;
+  height: 48px;
 }
 
 // Image centered on index

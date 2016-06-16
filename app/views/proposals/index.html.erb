@@ -11,11 +11,13 @@
       <% @proposals.each do |proposal| %>
         <div class="search_thumbnails col-sm-6 col-md-3">
           <div class="search_img proposal_box">
-            <% if proposal.avatar == "" %>
-              <%= image_tag("http://icons.veryicon.com/128/Avatar/Face%20Avatars/Male%20Face%20N2.png", class:"img_box")%>
-            <% else %>
-              <%= image_tag(proposal.avatar, class:"img_box")%>
-            <% end %>
+            <div class="img_container">
+              <% if proposal.avatar == "" %>
+                <%= image_tag("http://icons.veryicon.com/128/Avatar/Face%20Avatars/Male%20Face%20N2.png", class:"img_box")%>
+              <% else %>
+                <%= image_tag(proposal.avatar, class:"img_box")%>
+              <% end %>
+            </div>
             <div class="btn btn-danger btn-xs counter"><%= proposal.counter %></div>
           </div>
           <div class="search_caption">
