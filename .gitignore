@@ -1,7 +1,6 @@
 /tmp
 /log/*.log
 log/development.log
-Gemfile.lock
 /config/twitter_secrets.yml
 TutorialCRUDCodeaTAG.md
 TutorialTWITTERCodeaTAG.md
