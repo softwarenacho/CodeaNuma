@@ -61,9 +61,8 @@ class ProposalsController < ApplicationController
     end
 
     def api_access     
-      api_token = User.find_by_api_token(params[:api_token])     
+      api_token = User.find_by_api_token("#{params[:api_token]}")     
       head :unauthorized unless api_token
-
     end
 
     def create_from_twitter
