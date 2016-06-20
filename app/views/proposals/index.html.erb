@@ -24,7 +24,7 @@
             <h5><%= proposal.name %></h5>
           </div>
           <div class="search_btn">      
-            <% if current_user.admin? %>      
+            <% if current_user != nil %>      
               <%= link_to "E", edit_proposal_path(proposal), class: "btn btn-default btn-xs" %>
               <%= link_to "X", proposal_path(proposal),
               method: :delete,
