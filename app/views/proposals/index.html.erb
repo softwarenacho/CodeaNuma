@@ -23,11 +23,13 @@
           <div class="search_caption">
             <h5><%= proposal.name %></h5>
           </div>
-          <div class="search_btn">            
-            <%= link_to "E", edit_proposal_path(proposal), class: "btn btn-default btn-xs" %>
-            <%= link_to "X", proposal_path(proposal),
-            method: :delete,
-            data: { confirm: "¿Seguro que quieres eliminar la propuesta?" }, class: "btn btn-default btn-xs" %>
+          <div class="search_btn">      
+            <% if current_user.admin? %>      
+              <%= link_to "E", edit_proposal_path(proposal), class: "btn btn-default btn-xs" %>
+              <%= link_to "X", proposal_path(proposal),
+              method: :delete,
+              data: { confirm: "¿Seguro que quieres eliminar la propuesta?" }, class: "btn btn-default btn-xs" %>
+            <% end %>
           </div>
         </div>
       <% end %>

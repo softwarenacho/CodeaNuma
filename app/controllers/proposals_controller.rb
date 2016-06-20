@@ -5,7 +5,7 @@ class ProposalsController < ApplicationController
 
   def index
     @proposal  = Proposal.new
-    @proposals = Proposal.all
+    @proposals = Proposal.all.order(counter: :desc)
   end
 
   def new
