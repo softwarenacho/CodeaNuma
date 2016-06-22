@@ -13,7 +13,7 @@
           <div class="search_img proposal_box">
             <div class="img_container">
               <% if proposal.avatar == "" %>
-                <%= image_tag("http://icons.veryicon.com/128/Avatar/Face%20Avatars/Male%20Face%20N2.png", class:"img_box")%>
+                <%= link_to image_tag("http://icons.veryicon.com/128/Avatar/Face%20Avatars/Male%20Face%20N2.png", class:"img_box"), proposal_path(proposal) %>
               <% else %>
                 <%= image_tag(proposal.avatar, class:"img_box")%>
               <% end %>
