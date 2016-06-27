@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
 
-  # skip_before_filter :verify_authenticity_token, :only => :api_create
-  # before_action :api_access, only: [:api_create]
+  skip_before_filter :verify_authenticity_token, :only => [:api_create, :api_counter]
+  before_action :api_access, only: [:api_create, :api_counter]
 
   def index
     @proposal  = Proposal.new
@@ -55,10 +55,8 @@ class ProposalsController < ApplicationController
   end
 
   def api_counter
-    p "Este es el twitter_handle "*10
-    p proposal_params[:twitter_handle]
-    @proposal = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle]).counter
-    "Valor de retorno"
+    @counter = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle]).counter
+    render plain: @counter
   end
 
   private
