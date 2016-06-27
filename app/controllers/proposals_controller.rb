@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
 
-  # skip_before_filter :verify_authenticity_token, :only => :api_create
-  # before_action :api_access, only: [:api_create]
+  skip_before_filter :verify_authenticity_token, :only => :api_create
+  before_action :api_access, only: [:api_create]
 
   def index
     @proposal  = Proposal.new

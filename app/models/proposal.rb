@@ -1,6 +1,6 @@
 class Proposal < ActiveRecord::Base
 
-  # validates :twitter_handle, uniqueness: true
+  validates :twitter_handle, uniqueness: true
 
   def send_to_codea
       api_token = Rails.application.secrets.codea_tag_api_token            
