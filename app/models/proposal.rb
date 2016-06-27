@@ -12,6 +12,7 @@ class Proposal < ActiveRecord::Base
       Net::HTTP.post_form(URI.parse(url), params)  
   end
 
+
 end
 
 

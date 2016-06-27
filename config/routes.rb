@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   match '/api_create',  to: 'proposals#api_create',         via: 'post'
-  
+  match '/api_counter',  to: 'proposals#api_counter',         via: 'post'
+
   root  'static_pages#home'
   resources :proposals
 
