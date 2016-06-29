@@ -46,11 +46,7 @@ module SessionsHelper
   end
   
   def sign_out
-    current_user.update_attribute(:remember_token, User.encrypt(User.new_remember_token))
-    cookies.delete(:remember_token)
     session.destroy
-    # cookies.delete(:previous)
-    self.current_user = nil
   end
 
   def redirect_back_or(default)

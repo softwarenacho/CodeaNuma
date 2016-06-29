@@ -72,17 +72,20 @@ class ProposalsController < ApplicationController
 
     def create_from_twitter
       @proposal = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle])
+      tweet = "Quiero ver a @#{proposal_params[:twitter_handle]} en \#TagCDMX \#BeMoreNerd \#CodeTheFuture @codeacamp @tag_cdmx"
       if @proposal
         @proposal.increment(:counter).save      
         flash[:success] = "Propuesta Agregada"
-        current_user.tweet("Quiero ver a @#{@proposal.twitter_handle} en @tag_cdmx @codeacamp")
+        current_user.tweet(tweet)
         redirect_to proposals_path
       else
         @proposal = Proposal.new(proposal_params)
         if @proposal.save
-           flash[:success] = "Propuesta Agregada"
-           current_user.tweet("Quiero ver a @#{@proposal.twitter_handle} en @tag_cdmx @codeacamp")
-           redirect_to proposals_path
+            flash[:success] = "Propuesta Agregada"
+            if current_user
+            current_user.tweet(tweet)
+            end
+            redirect_to proposals_path
         else
           render 'new'
         end
