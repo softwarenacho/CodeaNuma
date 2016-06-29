@@ -16,6 +16,18 @@ class User < ActiveRecord::Base
       Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def tweet(tweet)
+    puts "Entre a Tweet con #{tweet}"
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = Rails.application.secrets.consumer_key
+      config.consumer_secret     = Rails.application.secrets.consumer_secret
+      config.access_token        = self.oauth_token
+      config.access_token_secret = self.oauth_secret
+    end
+    
+    client.update(tweet)
+  end
+
   private
 
     def generate_api_token

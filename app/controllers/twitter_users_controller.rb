@@ -1,7 +1,7 @@
 class TwitterUsersController < ApplicationController
 
   def twitter_create
-    pp twitter =  request.env['omniauth.auth']
+    twitter =  request.env['omniauth.auth']
   	@user = User.new
   	@user.name = twitter.info.name
   	@user.email = twitter.info.email
@@ -11,7 +11,7 @@ class TwitterUsersController < ApplicationController
   	@user.oauth_secret = twitter.credentials.secret
     session[:user_id] = @user.id
   	if @user.save
-  		flash[:success] = "Sesión creada exitosamente"
+  		flash[:success] = "Conectado con Twitter exitosamente"
       sign_in @user
       redirect_to user_path(@user)
     else

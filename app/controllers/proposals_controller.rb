@@ -75,11 +75,13 @@ class ProposalsController < ApplicationController
       if @proposal
         @proposal.increment(:counter).save      
         flash[:success] = "Propuesta Agregada"
+        current_user.tweet("Quiero ver a @#{@proposal.twitter_handle} en @tag_cdmx @codeacamp")
         redirect_to proposals_path
       else
         @proposal = Proposal.new(proposal_params)
         if @proposal.save
            flash[:success] = "Propuesta Agregada"
+           current_user.tweet("Quiero ver a @#{@proposal.twitter_handle} en @tag_cdmx @codeacamp")
            redirect_to proposals_path
         else
           render 'new'
