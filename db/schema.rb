@@ -28,11 +28,13 @@ ActiveRecord::Schema.define(version: 20160519162739) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "phone"
-    t.string   "password_digest"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin",          default: false
     t.string   "remember_token"
     t.string   "api_token"
+    t.string   "twitter_handle"
+    t.string   "avatar"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

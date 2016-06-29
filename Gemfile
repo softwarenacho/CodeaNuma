@@ -46,7 +46,9 @@ group :development do
   gem 'spring'
 end
 
+
 gem 'twitter'
+gem 'omniauth-twitter'
 
 gem 'simple_form'
 # Correr este comando para que sirva simple form con boostrap

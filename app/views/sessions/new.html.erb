@@ -11,7 +11,7 @@
 			<%= f.password_field :password, { :class => "form-control" } %>
 			<br>
 	    <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-
+			<%= link_to 'Twitter', '/auth/twitter', class: "btn btn-large btn-primary" %>
 		<% end %>
 	</div>
 <% else %>

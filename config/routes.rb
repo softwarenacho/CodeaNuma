@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root  'static_pages#home'
   resources :proposals
 
+  get '/auth/:provider/callback', to: 'twitter_users#twitter_create'
+
   match '/twitter_search', to: 'twitter_users#search_users', via: 'get', as: 'twitter_users_search'
 
 
