@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519162739) do
+ActiveRecord::Schema.define(version: 20160629223224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 20160519162739) do
     t.string   "oauth_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users_proposals", force: :cascade do |t|
+    t.string "proposal_id"
+    t.string "user_id"
   end
 
 end
