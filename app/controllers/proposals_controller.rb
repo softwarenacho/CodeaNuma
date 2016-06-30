@@ -15,9 +15,7 @@ class ProposalsController < ApplicationController
   def create
     proposal = Proposal.find_by(name: params[:proposal][:name])
     if proposal == nil
-      @proposal = Proposal.new(proposal_params)
-      p @proposal.save
-      p @proposal
+      @proposal = Proposal.create(proposal_params)
       flash[:success] = "Propuesta agregada"
       redirect_to proposals_path
     else
@@ -85,12 +83,12 @@ class ProposalsController < ApplicationController
         else
           up = UserProposal.where(user_id: current_user.id, proposal_id: @proposal.id)
         end
-        p "Esto es up" * 10
-        p up
         if up.any?
           flash[:danger] = "Sólo puedes agregar la Propuesta una vez"
           redirect_to proposals_path
         else
+        up_id = current_user == nil ? request.remote_ip : current_user.id
+        UserProposal.create(user_id: up_id, proposal_id: @proposal.id)
         @proposal.increment(:counter).save      
         current_user.tweet(tweet) if current_user != nil
         flash[:success] = "Propuesta Agregada"

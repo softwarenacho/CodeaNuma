@@ -1,0 +1,351 @@
+Searching 502 files for "p "
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/controllers/proposals_controller.rb:
+   17      if proposal == nil
+   18        @proposal = Proposal.new(proposal_params)
+   19:       @proposal.save
+   20:       @proposal
+   21        flash[:success] = "Propuesta agregada"
+   22        redirect_to proposals_path
+   ..
+   79      def create_from_twitter
+   80        @proposal = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle])
+   81:       tweet = "Propongo a @#{proposal_params[:twitter_handle]} como ponente de @tag_cdmx, creado desde mi app hecha con @codeacamp #TagCDMX #CodeTheFuture #BeMoreNerd"
+   82        if @proposal
+   83          if current_user == nil
+   84:           up = UserProposal.where(user_id: request.remote_ip, proposal_id: @proposal.id)
+   85          else
+   86:           up = UserProposal.where(user_id: current_user.id, proposal_id: @proposal.id)
+   87          end
+   88          if up.any?
+   ..
+   90            redirect_to proposals_path
+   91          else
+   92:         up_id = current_user == nil ? request.remote_ip : current_user.id
+   93          UserProposal.create(user_id: up_id, proposal_id: @proposal.id)
+   94          @proposal.increment(:counter).save      
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/Gemfile:
+   28  gem 'bcrypt', '~> 3.1.7'
+   29  
+   30: # Use Unicorn as the app server
+   31  # gem 'unicorn'
+   32  
+   ..
+   34  # gem 'capistrano-rails', group: :development
+   35  
+   36: group :development, :test do
+   37:   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+   38    gem 'byebug'
+   39  end
+   40  
+   41: group :development do
+   42    # Access an IRB console on exception pages or by using <%= console %> in views
+   43    gem 'web-console', '~> 2.0'
+   44  
+   45:   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+   46    gem 'spring'
+   47  end
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/Gemfile.lock:
+   69        activesupport (>= 4.1.0)
+   70      hashie (3.4.4)
+   71:     http (1.0.4)
+   72        addressable (~> 2.3)
+   73        http-cookie (~> 1.0)
+   ..
+  178        equalizer (= 0.0.10)
+  179        faraday (~> 0.9.0)
+  180:       http (~> 1.0)
+  181        http_parser.rb (~> 0.6.0)
+  182        json (~> 1.8)
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/README.rdoc:
+    2  
+    3  This README would normally document whatever steps are necessary to get the
+    4: application up and running.
+    5  
+    6  Things you may want to cover:
+    .
+   25  
+   26  
+   27: Please feel free to use a different markup language if you do not plan to run
+   28  <tt>rake doc:app</tt>.
+   29  
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/assets/stylesheets/application.scss:
+  175          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  176      }
+  177:     .navbar-fixed-top {
+  178          top: 0;
+  179          border-width: 0 0 1px;
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/controllers/twitter_users_controller.rb:
+    3    def twitter_create
+    4      twitter =  request.env['omniauth.auth']
+    5:     pp twitter
+    6      @user = User.find_or_create_by(twitter_handle: "#{twitter.info.nickname}") do |user|
+    7  	  	user.name = twitter.info.name
+    .
+   12  	  	user.oauth_secret = twitter.credentials.secret
+   13  	  end
+   14:     p @user
+   15      session[:user_id] = @user.id
+   16  		flash[:success] = "Conectado con Twitter exitosamente"
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/views/layouts/_header.html.erb:
+    1: <nav class="navbar navbar-fixed-top navbar-inverse">
+    2    <div class="container-fluid">
+    3      <!-- <div class="navbar-header"> -->
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/views/layouts/application.html.erb:
+   13      <div id="flash_div">
+   14        <% flash.each do |key, value| %>
+   15:         <div class="col-md-12 col-sm-12 col-xs-12 form-group flash_message">
+   16              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+   17          </div>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/views/proposals/show.html.erb:
+   10      </div>
+   11      <div class="panel-footer text-center h1">
+   12:     <% p "*"*100 %>
+   13:     	<% p @proposal %>
+   14      	<% if @proposal.twitter_handle != nil %>
+   15          <%= link_to image_tag("http://icons.veryicon.com/png/Application/Android%20Lollipop%20Apps/Twitter.png", class:"twitter_link", height: "40px", style: "margin-bottom: 10px;"), "http://www.twitter.com/#{@proposal.twitter_handle}", target: "_blank"%>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/app/views/static_pages/home.html.erb:
+    4        <h1 class="title text-center" id="speaker-title">¿Cuál es tu propuesta de Speaker?</h1>
+    5        <%= form_tag twitter_users_search_path, method: "get",remote: true , class: "form-inline" do %>
+    6:         <div class="input-group form-group-lg col-md-offset-2 col-md-6 col-xs-12">
+    7            <div class="input-group-addon">@</div>
+    8            <%= text_field :twitter, :search, class: "form-control" %>
+    9          </div>
+   10:         <div class="input-group col-md-2 col-xs-12">
+   11            <%= button_tag "Search" , class: "btn btn-lg btn-primary btn-block" %>
+   12          </div>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/bin/setup:
+    6  
+    7  Dir.chdir APP_ROOT do
+    8:   # This script is a starting point to setup your application.
+    9:   # Add necessary setup steps to this file:
+   10  
+   11    puts "== Installing dependencies =="
+   ..
+   15    # puts "\n== Copying sample files =="
+   16    # unless File.exist?("config/database.yml")
+   17:   #   system "cp config/database.yml.sample config/database.yml"
+   18    # end
+   19  
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/boot.rb:
+    1  ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
+    2  
+    3: require 'bundler/setup' # Set up gems listed in the Gemfile.
+    4  
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/secrets.yml:
+   21    secret_key_base: b0bef0d2434a36d95a40c77a1511f6846b5c4bfa482804ee09c312f3e0504764614cb02ed8401e159b99ba218ec782670ee8045d1c319b1b4ad52075a9a9333d
+   22  
+   23: # Do not keep production secrets in the repository,
+   24  # instead read values from the environment.
+   25  production:
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/environments/development.rb:
+   28    config.assets.debug = true
+   29  
+   30:   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+   31    # yet still be able to expire them through the digest params.
+   32    config.assets.digest = true
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/environments/production.rb:
+   15    config.action_controller.perform_caching = true
+   16  
+   17:   # Enable Rack::Cache to put a simple HTTP cache in front of your application
+   18    # Add `rack-cache` to your Gemfile before enabling this.
+   19    # For large-scale production use, consider using a caching reverse proxy like
+   ..
+   32    config.assets.compile = true
+   33  
+   34:   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+   35    # yet still be able to expire them through the digest params.
+   36    config.assets.digest = true
+   ..
+   42    # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+   43  
+   44:   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+   45    # config.force_ssl = true
+   46  
+   ..
+   72    config.active_support.deprecation = :notify
+   73  
+   74:   # Use default logging formatter so that PID and timestamp are not suppressed.
+   75    config.log_formatter = ::Logger::Formatter.new
+   76  
+   77:   # Do not dump schema after migrations.
+   78    config.active_record.dump_schema_after_migration = false
+   79  end
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/initializers/inflections.rb:
+    8  #   inflect.singular /^(ox)en/i, '\1'
+    9  #   inflect.irregular 'person', 'people'
+   10: #   inflect.uncountable %w( fish sheep )
+   11  # end
+   12  
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/initializers/simple_form.rb:
+    1: # Use this setup block to configure all options available in SimpleForm.
+    2: SimpleForm.setup do |config|
+    3    # Wrappers are used by the form builder to generate a
+    4    # complete input. You can remove any component from the
+    5    # wrapper, change the order or even add your own to the
+    6:   # stack. The options given below are used to wrap the
+    7    # whole input.
+    8    config.wrappers :default, class: :input,
+    .
+   56  
+   57    # Define the way to render check boxes / radio buttons with labels.
+   58:   # Defaults to :nested for bootstrap config.
+   59    #   inline: input + label
+   60    #   nested: label > input
+   ..
+   64    config.button_class = 'btn'
+   65  
+   66:   # Method used to tidy up errors. Specify any Rails Array method.
+   67    # :first lists the first message for each field.
+   68    # Use :to_sentence to list all errors for each field.
+   ..
+   84    # config.collection_value_methods = [ :id, :to_s ]
+   85  
+   86:   # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
+   87    # config.collection_wrapper_tag = nil
+   88  
+   ..
+   90    # config.collection_wrapper_class = nil
+   91  
+   92:   # You can wrap each item in a collection of radio/check boxes with a tag,
+   93    # defaulting to :span.
+   94    # config.item_wrapper_tag = :span
+   ..
+  116    # These validations are enabled in SimpleForm's internal config but disabled by default
+  117    # in this configuration, which is recommended due to some quirks from different browsers.
+  118:   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
+  119    # change this configuration to true.
+  120    config.browser_validations = false
+  ...
+  125    # Custom mappings for input types. This should be a hash containing a regexp
+  126    # to match as key, and the input type that will be used when the field name
+  127:   # matches the regexp as value.
+  128    # config.input_mappings = { /count/ => :integer }
+  129  
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/config/initializers/simple_form_bootstrap.rb:
+    1: # Use this setup block to configure all options available in SimpleForm.
+    2: SimpleForm.setup do |config|
+    3    config.error_notification_class = 'alert alert-danger'
+    4    config.button_class = 'btn btn-default'
+    .
+  133      end
+  134    end
+  135:   # Wrappers for forms and inputs using the Bootstrap toolkit.
+  136:   # Check the Bootstrap docs (http://getbootstrap.com)
+  137    # to learn about the different styles for forms and inputs,
+  138    # buttons and other elements.
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/log/development.log:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/public/404.html:
+   38    }
+   39  
+   40:   div.dialog > p {
+   41      margin: 0 0 1em;
+   42      padding: 1em;
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/public/422.html:
+   38    }
+   39  
+   40:   div.dialog > p {
+   41      margin: 0 0 1em;
+   42      padding: 1em;
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/public/500.html:
+   38    }
+   39  
+   40:   div.dialog > p {
+   41      margin: 0 0 1em;
+   42      padding: 1em;
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/4D/4DO3i9z28vygMlxgZ1cs4dgBUOqGsbo9S30bcJPbUIs.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/6F/6FKTJoWOtFQP9m7GekMJmydbf2Zfx_Z9WdtpzBhnx4Y.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/aE/aExn36RduaI_dANeC7G2_RYfWT2uPxf2tc5vpuQ-aRQ.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/b_/B_Fwukc-lqPbsfMiA2j3h5IRu6hHrOoc6_KGpZsfD-0.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/C0/C0BiwBvgRL1rgy62gxBZ5wVlSJgxPMjgbqltTVIoLa4.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/cc/ccWLiIZ_qyjkEGreOj1zaZuliPou99hAbg6Yny7SmNk.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/Cs/cs_xWn-_37vSZjmILF5FlmPcqixQm8xHfKEXEQ4ivxE.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/FN/FN4N-Ognl_bJQqJz5HI7ppaT5gQPWsjL8DwsvS6W8Y8.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/Gs/GsHyqzOV75_mN2maJqa2QlKSKtFIsKyk5osw39lQqqE.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/hF/hFO9H2OMHoJUWOJLmZkmitEm299ob7QqksPsgbLY4uQ.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/Hq/HqLjFtwna1L66xk18MKZokdsuKzpa5-ld6d-15lS-Zw.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/Ij/Ij2tAFS1LHbQS3y46ZqfHu3SX1mpZC6ZP2Shxxhkq2k.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/Jr/Jriwi3iUhqgb6IhwfWl7L4qJfZ0gDia-TNA4Fzhrozw.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/L_/L_gDl87ZqcCXVaDwksAPXf9qg4dgjlGJ6881art9JeE.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/nS/NSH_zUUlgPdT0yYQxyliZnTcY8YOa5mRUNy7eF27OTU.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/oW/oWJc9zI6YVLR_4pgunblX6_pIcPxsUNt1u_AKxMs4vI.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/pc/pcxDcFW1GqzfiU3yZQupXHXN-Vl2aNHxwPlrgFdkS7Q.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/px/px0kigsjApSa3oYoc6pYx-ZR0v3olfn_k0vegyC4seI.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/qB/qBQUbVxnhWklW2u6j05dc0hgJvWj9KY3VRuQVNQJFGE.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/qI/QiakuB8XGUa42vcFY1QigsQduGyHF4XgMR2Olg3qKxk.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/SH/SHA7D-VpmKMJNgS_PPFVKRZCP-vCqTkBysYuwlTaY4E.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/SN/SN64K83rwow0hzF-XPxgCwaTrD5CqBrhlcMzFxcwpJo.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/wn/wnBheDbXKrxxHlVvdVMV2QafZHL1fFnK_glUP0lsYmg.cache:
+    <binary>
+
+/Users/nacho/Dropbox/CodeaNacho/CodeaTAG/tmp/cache/assets/sprockets/v3.0/ZL/ZLFZQDTqUbD5LYh_f2UFHoVeOWyFpgSVqboA2zf01fM.cache:
+    <binary>
+
+137 matches across 46 files
