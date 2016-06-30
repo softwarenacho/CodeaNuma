@@ -97,8 +97,8 @@ class ProposalsController < ApplicationController
       tweet.gsub!("#BeMoreNerd", "") if tweet.length > 144
       if @proposal
         if current_user == nil
-          if params[:api_token]
-            user = User.find_by_api_token("#{params[:api_token]}")
+          if params[:api_token] != nil
+            user = User.find_by(api_token: params[:api_token])
             up = UserProposal.where(user_id: user.id, proposal_id: @proposal.id)
           else
             up = UserProposal.where(user_id: request.remote_ip, proposal_id: @proposal.id)
@@ -121,8 +121,8 @@ class ProposalsController < ApplicationController
         @proposal = Proposal.new(proposal_params)
         if @proposal.save
           if current_user == nil
-            if params[:api_token]
-              user = User.find_by_api_token("#{params[:api_token]}")
+            if params[:api_token] != nil
+              user = User.find_by(api_token: params[:api_token])
               UserProposal.create(user_id: user.id, proposal_id: @proposal.id)
               user.tweet(tweet)
             else
