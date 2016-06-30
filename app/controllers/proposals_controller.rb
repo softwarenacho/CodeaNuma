@@ -16,12 +16,24 @@ class ProposalsController < ApplicationController
     proposal = Proposal.find_by(name: params[:proposal][:name])
     if proposal == nil
       @proposal = Proposal.create(proposal_params)
+      up_id = current_user == nil ? request.remote_ip : current_user.id
+      UserProposal.create(user_id: up_id, proposal_id: @proposal.id)
       flash[:success] = "Propuesta agregada"
       redirect_to proposals_path
     else
-      @proposal = proposal
-      flash[:danger] = "La propuesta ya existe"
-      redirect_to proposals_path
+      if current_user == nil
+        up = UserProposal.where(user_id: request.remote_ip, proposal_id: proposal.id)
+      else
+        up = UserProposal.where(user_id: current_user.id, proposal_id: proposal.id)
+      end
+      if up.any?
+        flash[:danger] = "Sólo puedes agregar la Propuesta una vez"
+        redirect_to proposals_path
+      else
+        @proposal = proposal
+        flash[:danger] = "Sólo puedes agregar la Propuesta una vez"
+        redirect_to proposals_path
+      end
     end
   end
 
