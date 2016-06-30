@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   match '/api_create',  to: 'proposals#api_create',         via: 'post'
   match '/api_counter',  to: 'proposals#api_counter',         via: 'post'
+  match '/api_decrement',  to: 'proposals#api_decrement',         via: 'post'
 
   resources :proposals
 

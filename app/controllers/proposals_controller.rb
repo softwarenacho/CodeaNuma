@@ -76,6 +76,10 @@ class ProposalsController < ApplicationController
     render plain: @counter
   end
 
+  def api_decrement
+    @counter = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle]).decrement!(:counter)
+  end
+
   private
 
     def proposal_params
@@ -103,7 +107,7 @@ class ProposalsController < ApplicationController
         else
         up_id = current_user == nil ? request.remote_ip : current_user.id
         UserProposal.create(user_id: up_id, proposal_id: @proposal.id)
-        @proposal.increment(:counter).save      
+        @proposal.increment!(:counter)
         current_user.tweet(tweet) if current_user != nil
         flash[:success] = "Propuesta Agregada"
         redirect_to proposals_path
