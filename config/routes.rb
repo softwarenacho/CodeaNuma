@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'twitter_users#twitter_create'
 
-  match '/twitter_search', to: 'twitter_users#search_users', via: 'get', as: 'twitter_users_search'
+  match '/twitter_search', to: 'twitter_users#search_users', via: 'get'
 
 
   match '/add_proposal', to: 'proposals#add_proposal', via: 'post', as: 'add_proposal'
