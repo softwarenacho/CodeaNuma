@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
+  root  'static_pages#home'
+
   match '/api_create',  to: 'proposals#api_create',         via: 'post'
   match '/api_counter',  to: 'proposals#api_counter',         via: 'post'
 
-  root  'static_pages#home'
   resources :proposals
 
   get '/auth/:provider/callback', to: 'twitter_users#twitter_create'
@@ -16,10 +17,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :sessions, only: [:new, :create, :destroy]
-  
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  resources :password_resets, only: [:edit, :update]
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
 
 end

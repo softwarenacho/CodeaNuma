@@ -15,7 +15,6 @@ class TwitterUsersController < ApplicationController
     session[:user_id] = @user.id
   	if @user.save
   		flash[:success] = "Conectado con Twitter exitosamente"
-      sign_in @user
       redirect_to user_path(@user)
     else
     	flash[:danger] = "Hubo un error con tu inicio de sesión"

@@ -9,21 +9,18 @@
       </button>
       <%= link_to image_tag("tag_logo.png", alt: "TagCDMX", :height => 32) , root_path, class: "navbar-brand logo", id: "logo_tag" %>
       <%= link_to image_tag("codeacamp_logo.png", alt: "Codea", :height => 32) , root_path, class: "navbar-brand logo pull-right", id: "logo_codea" %>
-    <!-- </div> -->
     <div class="collapse navbar-collapse" id="main-menu" >
       <ul class="nav navbar-nav">
         <li><%= link_to "Propón con Twitter", root_path %></li>
         <li><%= link_to "Propuestas", proposals_path %></li>
         <li><%= link_to "Nueva propuesta", new_proposal_path %></li>
         <% unless signed_in? %>
-          <li><%= link_to "Iniciar Sesión", signin_path %></li>
+          <li><%= link_to "Inicio con Twitter", '/auth/twitter' %></li>
         <% else %>
           <li><%= link_to "Perfil", user_path(current_user) %></li>
           <li><%= link_to "Cerrar Sesión", signout_path, method: "delete" %></li>
         <% end %>
       </ul>
     </div>
-    <!-- <div class="navbar-header"> -->
-    <!-- </div> -->
   </div>
 </nav>
