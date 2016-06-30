@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629223224) do
+ActiveRecord::Schema.define(version: 20160630005736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160629223224) do
     t.integer  "counter",        default: 1
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "user_proposals", force: :cascade do |t|
+    t.string   "proposal_id"
+    t.string   "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,11 +44,6 @@ ActiveRecord::Schema.define(version: 20160629223224) do
     t.string   "oauth_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "users_proposals", force: :cascade do |t|
-    t.string "proposal_id"
-    t.string "user_id"
   end
 
 end
