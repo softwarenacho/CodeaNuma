@@ -31,7 +31,8 @@ class ProposalsController < ApplicationController
         redirect_to proposals_path
       else
         @proposal = proposal
-        flash[:danger] = "Sólo puedes agregar la Propuesta una vez"
+        @proposal.increment(:counter).save 
+        flash[:success] = "Propuesta agregada"
         redirect_to proposals_path
       end
     end
