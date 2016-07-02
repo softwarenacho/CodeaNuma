@@ -93,8 +93,7 @@ class ProposalsController < ApplicationController
 
     def create_from_twitter
       @proposal = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle])
-      tweet = "Propongo a @#{proposal_params[:twitter_handle]} como ponente de @tag_cdmx, creado desde mi app hecha con @codeacamp #TagCDMX #CodeTheFuture #BeMoreNerd"
-      tweet.gsub!("#BeMoreNerd", "") if tweet.length > 144
+      tweet = "Propongo a @#{proposal_params[:twitter_handle]} como ponente de @campusparty, creado desde mi app hecha con @codeacamp #CMX7 #FeelTheFuture"
       if @proposal
         if current_user == nil
           if params[:api_token] != nil
