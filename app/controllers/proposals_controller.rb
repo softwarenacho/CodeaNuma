@@ -4,6 +4,10 @@ class ProposalsController < ApplicationController
   before_action :api_access, only: [:api_create, :api_counter]
 
   def index
+    pp Rails.application.secrets.consumer_key
+    pp Rails.application.secrets.consumer_secret
+    pp Rails.application.secrets.access_token
+    pp Rails.application.secrets.access_token_secret
     @proposal  = Proposal.new
     @proposals = Proposal.all.order(counter: :desc)
   end
