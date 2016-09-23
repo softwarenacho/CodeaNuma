@@ -4,12 +4,6 @@ class ProposalsController < ApplicationController
   before_action :api_access, only: [:api_create, :api_counter]
 
   def index
-    puts "Probando" * 50
-    p "Consumer key: " + ENV['CONSUMER_KEY']
-    p "Consumer secret: " + ENV['CONSUMER_SECRET']
-    p "Access token: " + ENV['ACCESS_TOKEN']
-    p "Access token secret: " + ENV['ACCESS_TOKEN_SECRET']
-    p CLIENT
     @proposal  = Proposal.new
     @proposals = Proposal.all.order(counter: :desc)
   end
