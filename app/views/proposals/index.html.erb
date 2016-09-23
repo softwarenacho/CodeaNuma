@@ -1,7 +1,7 @@
 <div id="first_section">
   <div class="container">
     <div class="jumbotron well">
-      <h1 class="text-center">Propuestas para <%= image_tag("http://escenaweb.com/wp-content/uploads/2016/05/campus-party-mexico.png", alt: "TagCDMX", :height => 100)  %></h1>
+      <h1 class="text-center">Propuestas para <%= image_tag("http://www.gob.mx/cms/uploads/identity/image/2537/logo-codigox.png", alt: "TagCDMX", :height => 100)  %></h1>
     </div>
   </div><!-- container -->
 </div>
@@ -22,7 +22,7 @@
             <div class="caption">
               <h5 class="text-center username-card" style="display:inline-block">
                 <%= link_to proposal.name, proposal_path(proposal) %>
-              </h5> 
+              </h5>
               <div class="btn btn-danger btn-xs counter-show" style="margin-left: 5px;"><%= proposal.counter %></div>
               <% if current_user != nil %>
                 <% if current_user.admin == true %>
