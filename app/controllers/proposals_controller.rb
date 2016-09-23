@@ -5,11 +5,11 @@ class ProposalsController < ApplicationController
 
   def index
     puts "Probando" * 50
-    p Rails.application.secrets.consumer_key
-    p Rails.application.secrets.consumer_secret
-    p Rails.application.secrets.access_token
-    p Rails.application.secrets.access_token_secret
-    p Twitter
+    p "Consumer key: " + Rails.application.secrets.consumer_key
+    p "Consumer secret: " + Rails.application.secrets.consumer_secret
+    p "Access token: " + Rails.application.secrets.access_token
+    p "Access token secret: " + Rails.application.secrets.access_token_secret
+    p CLIENT
     @proposal  = Proposal.new
     @proposals = Proposal.all.order(counter: :desc)
   end
