@@ -9,6 +9,7 @@ class ProposalsController < ApplicationController
     p Rails.application.secrets.consumer_secret
     p Rails.application.secrets.access_token
     p Rails.application.secrets.access_token_secret
+    p Twitter
     @proposal  = Proposal.new
     @proposals = Proposal.all.order(counter: :desc)
   end
