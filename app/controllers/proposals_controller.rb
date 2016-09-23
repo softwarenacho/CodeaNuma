@@ -31,14 +31,14 @@ class ProposalsController < ApplicationController
         redirect_to proposals_path
       else
         @proposal = proposal
-        @proposal.increment(:counter).save 
+        @proposal.increment(:counter).save
         flash[:success] = "Propuesta agregada"
         redirect_to proposals_path
       end
     end
   end
 
-  def show 
+  def show
     @proposal = Proposal.find(params[:id])
   end
 
@@ -62,7 +62,7 @@ class ProposalsController < ApplicationController
     redirect_to proposals_path
   end
 
-  def add_proposal 
+  def add_proposal
     create_from_twitter
     # @proposal.send_to_codea
   end
@@ -86,14 +86,14 @@ class ProposalsController < ApplicationController
       params.require(:proposal).permit(:name, :avatar, :twitter_handle)
     end
 
-    def api_access     
-      api_token = User.find_by_api_token("#{params[:api_token]}")    
+    def api_access
+      api_token = User.find_by_api_token("#{params[:api_token]}")
       head :unauthorized unless api_token
     end
 
     def create_from_twitter
       @proposal = Proposal.find_by(twitter_handle: proposal_params[:twitter_handle])
-      tweet = "Propongo a @#{proposal_params[:twitter_handle]} como ponente de @campusparty, creado desde mi app hecha con @codeacamp #CPMX7 #FeelTheFuture"
+      tweet = "Propongo a @#{proposal_params[:twitter_handle]}, creado desde mi app hecha con @codeacamp #CPMX7 #FeelTheFuture"
       if @proposal
         if current_user == nil
           if params[:api_token] != nil
