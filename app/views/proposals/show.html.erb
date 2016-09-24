@@ -24,14 +24,16 @@
               <%= link_to image_tag("http://icons.veryicon.com/png/Application/Android%20Lollipop%20Apps/Twitter.png", class:"twitter_link", height: "40px", style: "margin-bottom: 10px;"), "http://www.twitter.com/#{@proposal.twitter_handle}", target: "_blank"%>
             <% end %>
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-4 options-margin">
-            <%= link_to "", edit_proposal_path(@proposal),
-                                    class: "btn btn-warning btn-xs glyphicon glyphicon-pencil" %>
-            <%= link_to "", proposal_path(@proposal),
-                  method: :delete,
-                  data: { confirm: "¿Seguro que quieres eliminar la propuesta?" },
-                  class: "btn btn-danger btn-xs glyphicon glyphicon-trash" %>
-          </div>
+          <% if current_user.admin %>
+            <div class="col-md-4 col-sm-4 col-xs-4 options-margin">
+              <%= link_to "", edit_proposal_path(@proposal),
+                                      class: "btn btn-warning btn-xs glyphicon glyphicon-pencil" %>
+              <%= link_to "", proposal_path(@proposal),
+                    method: :delete,
+                    data: { confirm: "¿Seguro que quieres eliminar la propuesta?" },
+                    class: "btn btn-danger btn-xs glyphicon glyphicon-trash" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
