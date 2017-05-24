@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: CodeaTAG_development
+  database: CodeaNuma_development
 
 test:
   <<: *default
-  database: CodeaTAG_test
+  database: CodeaNuma_test
 
 production:
   <<: *default
-  database: CodeaTAG_production
-  username: CodeaTAG
-  password: <%= ENV['CODEATAG_DATABASE_PASSWORD'] %>
+  database: CodeaNuma_production
+  username: CodeaNuma
+  password: <%= ENV['CODEANUMA_DATABASE_PASSWORD'] %>
